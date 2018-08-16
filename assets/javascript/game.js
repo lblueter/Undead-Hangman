@@ -1,5 +1,4 @@
 var wins = document.getElementById("wins")
-var guessRemain = document.getElementById("guessRemain")
 var wordList = [
     "zombie",
     "ghoul",
@@ -31,14 +30,17 @@ document.onkeyup = function (event) {
         alert("Making the code to check for your keys made me cry.");
     }
     else {
-    console.log(key)
-    for (var i = 0; i < zombie.length; i++) {
-        if (zombie[i].charAt(0) == key) {
-            console.log(zombie[i])
+        for (var i = 0; i < zombie.length; i++) {
+            if (zombie[i].charAt(0) == key) {
+                console.log(zombie[i])
 
+            }
         }
+        var guessCounter = 10;
+        var guessRemain = document.getElementById("guessremain")
+        guessRemain.textContent = guessCounter
+        var paragraph = document.getElementById("guessed");
+        paragraph.textContent += key + ", ";
+
     }
-    var paragraph = document.getElementById("guessed");
-    paragraph.textContent += key + ", ";
-}
 }
