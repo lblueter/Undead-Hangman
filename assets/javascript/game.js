@@ -16,11 +16,11 @@ var wordList = [
 
 document.onkeyup = function(event) {
     for (var i = 0; i < wordList.length; i++) {
-        console.log(wordList[0])
-        var letter = event.key.toLowerCase();
-
-        if (wordList[0].charAt[i] === letter) {
-            
+        // console.log(wordList[i])
+        // var letter = event
+        // console.log(letter)
+        if (wordList[0].charAt[i] == event) {
+            console.log(wordList[0].charAt[i])
         }
     }
 }
