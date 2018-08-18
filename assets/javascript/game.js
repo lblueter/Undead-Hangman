@@ -1,14 +1,4 @@
 var alpha = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-// var zombie = ["z", "o", "m", "b", "i", "e"]
-// var ghoul = ["g", "h", "o", "u", "l"]
-// var skeleton = ["s", "k", "e", "l", "e", "t", "o", "n"]
-// var ghost = ["g", "h", "o", "s", "t"]
-// var wraith = ["w", "r", "a", "i", "t", "h"]
-// var lich = function () { ["l", "i", "c", "h"] }
-// var poltergeist = ["p", "o", "l", "t", "e", "r", "g", "e", "i", "s", "t"]
-// var shadow = ["s", "h", "a", "d", "o", "w"]
-// var ghast = ["g", "h", "a", "s", "t"]
-// var wight = ["w", "i", "g", "h", "t"]
 var winNumber = 0;
 var lossNumber = 0;
 var wordList = [
@@ -37,9 +27,6 @@ var guessedLetter = [];
 var chosenWordArray = chosenWord.split("")
 guessedLetter.length = chosenWordArray.length
 displayedWord.length = guessedLetter.length
-// make blank array = length of word
-// match index of array to blank array
-// display blank array on html
 var reset = function () {
     for (var k = 0; k < chosenWordArray.length; k++) {
         displayedWord[k] = (" _ ")
@@ -50,8 +37,6 @@ console.log(displayedWord)
 var word = document.getElementById("word")
 word.textContent = displayedWord
 console.log(doTheReset)
-// .split("") splits string on every character into an array
-
 
 document.onkeyup = (function (event) {
     var key = event.key
@@ -72,7 +57,6 @@ document.onkeyup = (function (event) {
                     console.log(guessedLetter)
                     for (var j = 0; j < chosenWordArray.length; j++) {
                         if (chosenWordArray[j] == guessedLetter[j]) {
-                            // displayedWord = []
                             displayedWord[j] = guessedLetter[j]
                             console.log(displayedWord)
                         }
@@ -112,12 +96,6 @@ document.onkeyup = (function (event) {
             }
             console.log(guessCounter)
             guessRemain.textContent = guessCounter
-            // if (chosenWordArray == displayedWord) {
-            //     alert("You Win.")
-            //     guessCounter = 10
-            //     used = [" "]
-            //     paragraph.textContent = " "
-            // }
             if (displayedWord.indexOf(" _ ") == "-1") {
                 alert("You Win!")
                 winNumber++;
