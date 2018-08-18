@@ -1,5 +1,15 @@
-
-var wins = document.getElementById("wins")
+var alpha = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+// var zombie = ["z", "o", "m", "b", "i", "e"]
+// var ghoul = ["g", "h", "o", "u", "l"]
+// var skeleton = ["s", "k", "e", "l", "e", "t", "o", "n"]
+// var ghost = ["g", "h", "o", "s", "t"]
+// var wraith = ["w", "r", "a", "i", "t", "h"]
+// var lich = function () { ["l", "i", "c", "h"] }
+// var poltergeist = ["p", "o", "l", "t", "e", "r", "g", "e", "i", "s", "t"]
+// var shadow = ["s", "h", "a", "d", "o", "w"]
+// var ghast = ["g", "h", "a", "s", "t"]
+// var wight = ["w", "i", "g", "h", "t"]
+var winNumber = 0;
 var wordList = [
     "zombie",
     "ghoul",
@@ -13,32 +23,32 @@ var wordList = [
     "shadow"
 ]
 var random = function () {
-    Math.floor(Math.random() * wordList.length)
+    return Math.floor(Math.random() * wordList.length)
 }
-console.log(random)
-chosenWord = wordList[random]
+var randomNumber = random();
+console.log(randomNumber)
+var chosenWord = wordList[randomNumber]
 console.log(chosenWord)
-var alpha = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-var zombie = ["z", "o", "m", "b", "i", "e"]
-var ghoul = ["g", "h", "o", "u", "l"]
-var skeleton = ["s", "k", "e", "l", "e", "t", "o", "n"]
-var ghost = ["g", "h", "o", "s", "t"]
-var wraith = ["w", "r", "a", "i", "t", "h"]
-var lich = function () { ["l", "i", "c", "h"] }
-var poltergeist = ["p", "o", "l", "t", "e", "r", "g", "e", "i", "s", "t"]
-var shadow = ["s", "h", "a", "d", "o", "w"]
-var ghast = ["g", "h", "a", "s", "t"]
-var wight = ["w", "i", "g", "h", "t"]
-var used = [ ];
+var used = [];
 var guessCounter = 10;
-var newWord = [ ];
+var displayedWord = [];
+var guessedLetter = [];
 var chosenWordArray = chosenWord.split("")
+guessedLetter.length = chosenWordArray.length
+displayedWord.length = guessedLetter.length
 // make blank array = length of word
 // match index of array to blank array
 // display blank array on html
-for (var o = 0; o < zombie.length; o++) {
-    newWord.push("_ ")
+var reset = function () {
+    for (var k = 0; k < chosenWordArray.length; k++) {
+        displayedWord[k] = (" _ ")
+    }
 }
+var doTheReset = reset()
+console.log(displayedWord)
+var word = document.getElementById("word")
+word.textContent = displayedWord
+console.log(doTheReset)
 // .split("") splits string on every character into an array
 
 
@@ -47,53 +57,58 @@ document.onkeyup = (function (event) {
     var word = document.getElementById("word")
     var paragraph = document.getElementById("guessed");
     var guessRemain = document.getElementById("guessremain")
+    var wins = document.getElementById("wins")
     if (alpha.indexOf(key.toLowerCase()) == '-1') {
         alert("Making the code to check for your keys made me cry.");
     }
     else {
-        newWord = []
-        for (var i = 0; i < chosenWord.length; i++) {
-            if (chosenWordArray[i] == key) {
-                console.log(chosenWordArray[i])
-                for (var j = 0; j < chosenWordArray; j++) {
-
-                }
-                //if (character = chosenWordArray[i])
-                // displayword += character
-                //for (loop) {
-                //     for (loop) {
-                //     if ( guessedLetter[j] === chosenWordArray[j])
-                //     displayedWord += guessedLetter[j]
-                //     else {
-                //         displayWord += "_ "
-                //     }
-                // }
-                // }
-                //HOW TO GET THE LETTERS IN THE RIGHT SPOT
-                // _ _ o_ _ _ _
-                
-                // make 6 p tags?
-            }
-        }
-        //COUNTER GO DOWN WHEN INCORRECT, STAY SAME WHEN CORRECT
-        //HOW TO STOP REPEATS
-        //keep track in an array?
-        //How make an array and add in new inputs?
-        
         if (used.indexOf(key) == "-1") {
+            for (var i = 0; i < chosenWordArray.length; i++) {
+                if (chosenWordArray[i] == key) {
+                    console.log(chosenWordArray[i])
+                    guessedLetter[i] = key
+                    console.log(guessedLetter)
+                    for (var j = 0; j < chosenWordArray.length; j++) {
+                        if (chosenWordArray[j] == guessedLetter[j]) {
+                            // displayedWord = []
+                            displayedWord[j] = guessedLetter[j]
+                            console.log(displayedWord)
+                        }
+                        else {
+                            displayedWord[j] = " _ "
+                        }
+                    }
+                }
+
+            }
+            word.textContent = displayedWord
             used.unshift(key)
             console.log(used)
             paragraph.textContent += key + ", ";
-            guessCounter--;
+            if (chosenWordArray.indexOf(key) == "-1") {
+                guessCounter--;
+            }
+            if (guessCounter < 1) {
+                alert("You Lose.")
+                guessCounter = 10
+                used = [" "]
+                paragraph.textContent = " "
+            }
             console.log(guessCounter)
             guessRemain.textContent = guessCounter
+            if (chosenWordArray == displayedWord) {
+                alert("You Win.")
+                guessCounter = 10
+                used = [" "]
+                paragraph.textContent = " "
+            }
+            if (displayedWord.indexOf(" _ ") == "-1") {
+                alert("You Win!")
+                winNumber++;
+                wins.textContent = winNumber
+            }
         }
-        if (guessCounter < 1) {
-            alert("You Lose.")
-            guessCounter = 10
-            used = [" "]
-            paragraph.textContent = " "
-        }
+
     }
 })
 
