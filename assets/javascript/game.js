@@ -54,7 +54,7 @@ document.onkeyup = (function (event) {
     var wins = document.getElementById("wins")
     var losses = document.getElementById("losses")
     if (alpha.indexOf(key.toLowerCase()) == '-1') {
-        alert("Making the code to check for your keys made me cry.");
+        alert("Please press a letter of the alphabet or the undead army will catch you.");
     }
     else {
         if (used.indexOf(key) == "-1") {
