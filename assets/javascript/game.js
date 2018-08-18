@@ -10,6 +10,7 @@ var alpha = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n
 // var ghast = ["g", "h", "a", "s", "t"]
 // var wight = ["w", "i", "g", "h", "t"]
 var winNumber = 0;
+var lossNumber = 0;
 var wordList = [
     "zombie",
     "ghoul",
@@ -58,6 +59,7 @@ document.onkeyup = (function (event) {
     var paragraph = document.getElementById("guessed");
     var guessRemain = document.getElementById("guessremain")
     var wins = document.getElementById("wins")
+    var losses = document.getElementById("losses")
     if (alpha.indexOf(key.toLowerCase()) == '-1') {
         alert("Making the code to check for your keys made me cry.");
     }
@@ -90,9 +92,23 @@ document.onkeyup = (function (event) {
             }
             if (guessCounter < 1) {
                 alert("You Lose.")
-                guessCounter = 10
-                used = [" "]
+                lossNumber++;
+                losses.textContent = lossNumber;
+                randomNumber = random();
+                console.log(randomNumber)
+                chosenWord = wordList[randomNumber]
+                console.log(chosenWord)
+                used = [];
+                guessCounter = 10;
+                displayedWord = [];
+                guessedLetter = [];
+                chosenWordArray = chosenWord.split("")
+                guessedLetter.length = chosenWordArray.length
+                displayedWord.length = guessedLetter.length
                 paragraph.textContent = " "
+                reset();
+                console.log(doTheReset)
+                word.textContent = displayedWord
             }
             console.log(guessCounter)
             guessRemain.textContent = guessCounter
