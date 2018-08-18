@@ -11,7 +11,15 @@ var wordList = [
     "lich",
     "wight",
     "ghast",
-    "shadow"
+    "shadow",
+    "banshee",
+    "mummy",
+    "dracolich",
+    "phantasm",
+    "nightwalker",
+    "alhoon",
+    "vampire",
+    "bodak"
 ]
 var random = function () {
     return Math.floor(Math.random() * wordList.length)
