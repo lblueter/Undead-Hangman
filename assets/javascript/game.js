@@ -13,6 +13,7 @@ var wordList = [
     "ghast",
     "shadow",
     "banshee",
+<<<<<<< HEAD
     "dracolich",
     "flameskull",
     "revenant",
@@ -23,6 +24,15 @@ var wordList = [
     "alhoon",
     "nightwalker",
     "phantasm"
+=======
+    "mummy",
+    "dracolich",
+    "phantasm",
+    "nightwalker",
+    "alhoon",
+    "vampire",
+    "bodak"
+>>>>>>> 3224eae79758e2b1aea280f8d49fe7d729265994
 ]
 var random = function () {
     return Math.floor(Math.random() * wordList.length)
@@ -48,7 +58,10 @@ console.log(displayedWord)
 var word = document.getElementById("word")
 word.textContent = displayedWord
 console.log(doTheReset)
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3224eae79758e2b1aea280f8d49fe7d729265994
 
 document.onkeyup = (function (event) {
     var key = event.key
@@ -58,7 +71,7 @@ document.onkeyup = (function (event) {
     var wins = document.getElementById("wins")
     var losses = document.getElementById("losses")
     if (alpha.indexOf(key.toLowerCase()) == '-1') {
-        alert("Making the code to check for your keys made me cry.");
+        alert("Please press a letter of the alphabet or the undead army will catch you.");
     }
     else {
         if (used.indexOf(key) == "-1") {
