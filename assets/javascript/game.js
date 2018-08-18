@@ -96,16 +96,31 @@ document.onkeyup = (function (event) {
             }
             console.log(guessCounter)
             guessRemain.textContent = guessCounter
-            if (chosenWordArray == displayedWord) {
-                alert("You Win.")
-                guessCounter = 10
-                used = [" "]
-                paragraph.textContent = " "
-            }
+            // if (chosenWordArray == displayedWord) {
+            //     alert("You Win.")
+            //     guessCounter = 10
+            //     used = [" "]
+            //     paragraph.textContent = " "
+            // }
             if (displayedWord.indexOf(" _ ") == "-1") {
                 alert("You Win!")
                 winNumber++;
                 wins.textContent = winNumber
+                randomNumber = random();
+                console.log(randomNumber)
+                chosenWord = wordList[randomNumber]
+                console.log(chosenWord)
+                used = [];
+                guessCounter = 10;
+                displayedWord = [];
+                guessedLetter = [];
+                chosenWordArray = chosenWord.split("")
+                guessedLetter.length = chosenWordArray.length
+                displayedWord.length = guessedLetter.length
+                paragraph.textContent = " "
+                reset();
+                console.log(doTheReset)
+                word.textContent = displayedWord
             }
         }
 
