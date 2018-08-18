@@ -46,7 +46,8 @@ var reset = function () {
 var doTheReset = reset()
 console.log(displayedWord)
 var word = document.getElementById("word")
-word.textContent = displayedWord
+var joinedWord = displayedWord.join('')
+word.textContent = joinedWord
 console.log(doTheReset)
 
 
@@ -79,7 +80,8 @@ document.onkeyup = (function (event) {
                 }
 
             }
-            word.textContent = displayedWord
+            var joinedWord = displayedWord.join('')
+            word.textContent = joinedWord
             used.unshift(key)
             console.log(used)
             paragraph.textContent += key + ", ";
@@ -104,7 +106,7 @@ document.onkeyup = (function (event) {
                 paragraph.textContent = " "
                 reset();
                 console.log(doTheReset)
-                word.textContent = displayedWord
+                word.textContent = joinedWord
             }
             console.log(guessCounter)
             guessRemain.textContent = guessCounter
@@ -126,7 +128,7 @@ document.onkeyup = (function (event) {
                 paragraph.textContent = " "
                 reset();
                 console.log(doTheReset)
-                word.textContent = displayedWord
+                word.textContent = joinedWord
             }
         }
 
