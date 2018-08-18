@@ -13,7 +13,6 @@ var wordList = [
     "ghast",
     "shadow",
     "banshee",
-<<<<<<< HEAD
     "dracolich",
     "flameskull",
     "revenant",
@@ -24,15 +23,6 @@ var wordList = [
     "alhoon",
     "nightwalker",
     "phantasm"
-=======
-    "mummy",
-    "dracolich",
-    "phantasm",
-    "nightwalker",
-    "alhoon",
-    "vampire",
-    "bodak"
->>>>>>> 3224eae79758e2b1aea280f8d49fe7d729265994
 ]
 var random = function () {
     return Math.floor(Math.random() * wordList.length)
@@ -58,10 +48,7 @@ console.log(displayedWord)
 var word = document.getElementById("word")
 word.textContent = displayedWord
 console.log(doTheReset)
-<<<<<<< HEAD
 
-=======
->>>>>>> 3224eae79758e2b1aea280f8d49fe7d729265994
 
 document.onkeyup = (function (event) {
     var key = event.key
