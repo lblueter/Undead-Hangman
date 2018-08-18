@@ -1,0 +1,8 @@
+body {
+    background-color: black;
+}
+.bord {
+    border-style: double;
+    border-color: red;
+    border-width: 5px;
+}
