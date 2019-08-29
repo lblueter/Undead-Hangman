@@ -17,4 +17,4 @@ When you lose or win it restarts the game.
 
 Keeps track of wins and losses
 
-Link to site:  https://lblueter.github.io/Word-Guess-Game/
+Link to site:  https://lblueter.github.io/Undead-Hangman/
